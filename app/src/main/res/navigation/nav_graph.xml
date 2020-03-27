@@ -11,7 +11,7 @@
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
-            android:id="@+id/action_loginFragment_to_siteListFragment"
+            android:id="@+id/action_loginFragment_to_userDataTableFragment"
             app:destination="@id/userDataTableFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
