@@ -1,9 +1,10 @@
 package com.jojartbence.model
 
 data class TruckDataModel (
-    var licensePlateNumber: String,
-    private var distancePerDay: Array<IntArray> = Array(2) {IntArray(3)}
+    var licensePlateNumber: String
     ) {
+
+    private var distancePerDay: Array<IntArray> = Array(2) {IntArray(3)}
 
     enum class RoadType {
         MOTORWAY, MAINROAD
