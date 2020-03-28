@@ -69,19 +69,19 @@
                     android:text="Autópálya" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/textViewTodayMotorway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/textViewTomorrowMotorway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textViewAfterTomorrowMotorway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
@@ -98,19 +98,19 @@
                     android:text="Főút" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/textViewTodayMainRoad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/textViewTomorrowMainRoad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/textViewAfterTomorrowMainRoad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
