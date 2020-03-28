@@ -7,116 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".UserDataTableFragment">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TableRow>
-
-            <TextView
-                android:layout_width="160dp"
-                android:layout_column="0"
-                android:gravity="center"
-                android:padding="10dip"
-                android:text="Kamion rendszáma" />
-            <TextView
-                android:layout_width="160dp"
-                android:layout_column="1"
-                android:layout_span="2"
-                android:gravity="center"
-                android:padding="10dip"
-                android:text="Mai dátum" />
-            <TextView
-                android:layout_width="160dp"
-                android:layout_span="2"
-                android:text="Holnapi"
-                android:gravity="center"
-                android:padding="10dip" />
-            <TextView
-                android:layout_width="160dp"
-                android:layout_span="2"
-                android:text="Holnaputáni"
-                android:gravity="center"
-                android:padding="10dip" />
-        </TableRow>
-
-        <View
-            android:layout_height="2dip"
-            android:background="#FF909090" />
-
-        <TableRow>
-
-            <TextView
-                android:text="Autópálya"
-                android:layout_width="80dp"
-                android:layout_column="1"
-                android:gravity="center"
-                android:padding="3dip" />
-            <TextView
-                android:text="Főút"
-                android:layout_width="80dp"
-                android:gravity="center"
-                android:padding="3dip" />
-            <TextView
-                android:text="Autópálya"
-                android:layout_width="80dp"
-                android:gravity="center"
-                android:padding="3dip" />
-            <TextView
-                android:text="Főút"
-                android:layout_width="80dp"
-                android:gravity="center"
-                android:padding="3dip" />
-            <TextView
-                android:text="Autópálya"
-                android:layout_width="80dp"
-                android:gravity="center"
-                android:padding="3dip" />
-            <TextView
-                android:text="Főút"
-                android:layout_width="80dp"
-                android:gravity="center"
-                android:padding="3dip" />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:layout_column="1"
-                android:text="Save As..."
-                android:padding="3dip" />
-            <TextView
-                android:text="Ctrl-Shift-S"
-                android:gravity="right"
-                android:padding="3dip" />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:text="X"
-                android:padding="3dip" />
-            <TextView
-                android:text="Import..."
-                android:padding="3dip" />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:text="X"
-                android:padding="3dip" />
-            <TextView
-                android:text="Export..."
-                android:padding="3dip" />
-            <TextView
-                android:text="Ctrl-E"
-                android:gravity="right"
-                android:padding="3dip" />
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:layout_column="1"
-                android:text="Quit"
-                android:padding="3dip" />
-        </TableRow>
-
-    </TableLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
