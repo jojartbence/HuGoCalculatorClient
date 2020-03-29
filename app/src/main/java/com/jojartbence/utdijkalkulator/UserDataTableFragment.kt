@@ -9,11 +9,10 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jojartbence.model.TruckDataModel
 import kotlinx.android.synthetic.main.user_data_table_fragment.*
 
 
-class UserDataTableFragment : Fragment(), TruckDataListener {
+class UserDataTableFragment : Fragment() {
 
     private val viewModel by lazy { ViewModelProviders.of(this)[UserDataTableViewModel::class.java] }
 
@@ -34,14 +33,9 @@ class UserDataTableFragment : Fragment(), TruckDataListener {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
-        recyclerView.adapter = TruckDataAdapter(viewModel.getTruckDataList(), this)
+        recyclerView.adapter = TruckDataAdapter(viewModel.getTruckDataList(), null)
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
 
         recyclerView.adapter?.notifyDataSetChanged()
     }
-
-    override fun onTruckDataClick(truckData: TruckDataModel) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
 }

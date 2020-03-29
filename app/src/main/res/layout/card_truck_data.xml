@@ -13,7 +13,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewLicensePlateNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -29,7 +29,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
+            app:layout_constraintTop_toBottomOf="@+id/textViewLicensePlateNumber">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -70,23 +70,27 @@
                     android:layout_height="wrap_content"
                     android:text="Autópálya" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textViewTodayMotorway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:ems="8"
+                    android:inputType="numberDecimal" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textViewTomorrowMotorway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:ems="8"
+                    android:inputType="numberDecimal" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textViewAfterTomorrowMotorway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:ems="8"
+                    android:inputType="numberDecimal"  />
+
             </TableRow>
 
             <TableRow
@@ -99,23 +103,26 @@
                     android:layout_height="wrap_content"
                     android:text="Főút" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textViewTodayMainRoad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:ems="8"
+                    android:inputType="numberDecimal" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textViewTomorrowMainRoad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:ems="8"
+                    android:inputType="numberDecimal" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textViewAfterTomorrowMainRoad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:ems="8"
+                    android:inputType="numberDecimal" />
             </TableRow>
 
         </TableLayout>
