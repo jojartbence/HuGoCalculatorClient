@@ -34,10 +34,9 @@ class UserDataTableFragment : Fragment(), TruckDataListener {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
-        val layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        recyclerView.layoutManager = layoutManager
-
         recyclerView.adapter = TruckDataAdapter(viewModel.getTruckDataList(), this)
+        recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
+
         recyclerView.adapter?.notifyDataSetChanged()
     }
 
