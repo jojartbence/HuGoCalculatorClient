@@ -1,13 +1,13 @@
 package com.jojartbence.utdijkalkulator
 
 import androidx.lifecycle.ViewModel
-import com.jojartbence.model.TruckDataModel
+import com.jojartbence.model.TruckModel
 
 class UserDataTableViewModel : ViewModel() {
 
-    fun getTruckDataList(): List<TruckDataModel> {
-        val truck1 = TruckDataModel("ABC-123")
-        val truck2 = TruckDataModel("CDE-678")
+    fun getTruckList(): List<TruckModel> {
+        val truck1 = TruckModel("ABC-123")
+        val truck2 = TruckModel("CDE-678")
 
         return listOf(truck1, truck2)
     }

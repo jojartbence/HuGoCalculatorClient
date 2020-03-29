@@ -1,6 +1,6 @@
 package com.jojartbence.model
 
-data class TruckDataModel (
+data class TruckModel (
     var licensePlateNumber: String
     ) {
 

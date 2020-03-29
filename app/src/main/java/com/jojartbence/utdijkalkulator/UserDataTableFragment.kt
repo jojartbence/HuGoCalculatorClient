@@ -33,7 +33,7 @@ class UserDataTableFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
-        recyclerView.adapter = TruckDataAdapter(viewModel.getTruckDataList(), null)
+        recyclerView.adapter = TruckAdapter(viewModel.getTruckList(), null)
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
 
         recyclerView.adapter?.notifyDataSetChanged()

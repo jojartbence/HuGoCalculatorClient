@@ -5,11 +5,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.jojartbence.model.TruckDataModel
+import com.jojartbence.model.TruckModel
 
-class TruckFirebaseStore: TruckDataStoreInterface {
+class TruckFirebaseStore: TruckStoreInterface {
 
-    private val trucks = ArrayList<TruckDataModel>()
+    private val trucks = ArrayList<TruckModel>()
     lateinit var userId: String
     private val database = FirebaseDatabase.getInstance()
 
@@ -31,17 +31,17 @@ class TruckFirebaseStore: TruckDataStoreInterface {
     }
 
 
-    override fun findAll(): List<TruckDataModel> {
+    override fun findAll(): List<TruckModel> {
         return trucks
     }
 
 
-    override fun findById(id: String): TruckDataModel? {
+    override fun findById(id: String): TruckModel? {
         return trucks.find { truck -> truck.id == id }
     }
 
 
-    override fun create(truck: TruckDataModel) {
+    override fun create(truck: TruckModel) {
         val key = database.reference.child("users").child(userId).child("sites").push().key
         key?.let {
             truck.id = key
@@ -51,8 +51,8 @@ class TruckFirebaseStore: TruckDataStoreInterface {
     }
 
 
-    override fun update(truck: TruckDataModel) {
-        val foundTruck: TruckDataModel? = trucks.find { truck -> truck.id == truck.id }
+    override fun update(truck: TruckModel) {
+        val foundTruck: TruckModel? = trucks.find { truck -> truck.id == truck.id }
         if (foundTruck != null) {
 
             TODO("Update data in repository")
@@ -65,7 +65,7 @@ class TruckFirebaseStore: TruckDataStoreInterface {
     }
 
 
-    override fun delete(truck: TruckDataModel) {
+    override fun delete(truck: TruckModel) {
         truck.id?.let {
             database.reference.child("users").child(userId).child("sites").child(it).removeValue()
         }
@@ -83,7 +83,7 @@ class TruckFirebaseStore: TruckDataStoreInterface {
             override fun onCancelled(dataSnapshot: DatabaseError) {
             }
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot.children.mapNotNullTo(trucks) { it.getValue<TruckDataModel>(TruckDataModel::class.java) }
+                dataSnapshot.children.mapNotNullTo(trucks) { it.getValue<TruckModel>(TruckModel::class.java) }
                 onTruckListReady()
             }
         }

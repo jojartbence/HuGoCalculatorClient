@@ -1,10 +1,10 @@
 package com.jojartbence.repository
 
 import android.content.Context
-import com.jojartbence.model.TruckDataModel
+import com.jojartbence.model.TruckModel
 
-object TruckDataRepository {
-    private lateinit var truckStore: TruckDataStoreInterface
+object TruckRepository {
+    private lateinit var truckStore: TruckStoreInterface
 
     fun createDatabase(context: Context, userEmail: String) {
         truckStore = TruckFirebaseStore()
@@ -18,27 +18,27 @@ object TruckDataRepository {
     }
 
 
-    fun findAll(): List<TruckDataModel> {
+    fun findAll(): List<TruckModel> {
         return truckStore.findAll()
     }
 
 
-    fun create(truck: TruckDataModel) {
+    fun create(truck: TruckModel) {
         truckStore.create(truck)
     }
 
 
-    fun update(truck: TruckDataModel) {
+    fun update(truck: TruckModel) {
         truckStore.update(truck)
     }
 
 
-    fun delete(truck: TruckDataModel) {
+    fun delete(truck: TruckModel) {
         truckStore.delete(truck)
     }
 
 
-    fun findById(id: String) : TruckDataModel? {
+    fun findById(id: String) : TruckModel? {
         return truckStore.findById(id)
     }
 
