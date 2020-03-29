@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.jojartbence.repository.TruckRepository
 
 class LoginViewModel: ViewModel() {
 
@@ -42,9 +43,8 @@ class LoginViewModel: ViewModel() {
 
 
     fun initRepository(email: String, context: Context, onSuccess: () -> Unit) {
-      //  SiteRepository.createDatabase(context, email)
-      //  SiteRepository.fetchSites ( onSuccess )
-        onSuccess()
+        TruckRepository.createDatabase(context, email)
+        TruckRepository.fetchSites ( onSuccess )
     }
 
 
@@ -61,9 +61,7 @@ class LoginViewModel: ViewModel() {
                 loginResult.value = false
             }
             true -> {
-             //   SiteRepository.createDatabaseUsingBackup(context, email)
-             //   SiteRepository.fetchSites { loginResult.value = true }
-                loginResult.value = true
+                TruckRepository.fetchSites { loginResult.value = true }
             }
         }
     }
