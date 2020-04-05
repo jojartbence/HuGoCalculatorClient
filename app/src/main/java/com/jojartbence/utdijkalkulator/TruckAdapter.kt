@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.jojartbence.model.TruckModel
 import com.jojartbence.repository.TruckRepository
 import kotlinx.android.synthetic.main.card_truck_data.view.*
+import java.lang.NumberFormatException
 
 
 class TruckAdapter constructor(private var truckList: List<TruckModel>,
@@ -83,8 +85,18 @@ class TruckAdapter constructor(private var truckList: List<TruckModel>,
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     distanceDataType?.let {
-                        truck.setDistance(s.toString().toInt(), it.first, it.second)
-                        TruckRepository.update(truck)
+
+                        var number = 0
+                        val numberAsString = s.toString()
+
+                        try {
+                            number = if (numberAsString == "") 0 else numberAsString.toInt()
+                            truck.setDistance(number, it.first, it.second)
+                            TruckRepository.update(truck)
+                        } catch(exc: NumberFormatException) {
+                            Toast.makeText(itemView.context, "Wrong format", Toast.LENGTH_SHORT).show()
+                        }
+
                     }
                 }
 
