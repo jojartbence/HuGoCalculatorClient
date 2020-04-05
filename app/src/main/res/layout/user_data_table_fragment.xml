@@ -40,7 +40,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/newTruckLicensePlateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -52,14 +52,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/addTruckButton"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
                     android:text="Felvétel"
-                    app:layout_constraintBottom_toBottomOf="@+id/editText"
-                    app:layout_constraintStart_toEndOf="@+id/editText"
-                    app:layout_constraintTop_toTopOf="@+id/editText" />
+                    app:layout_constraintBottom_toBottomOf="@+id/newTruckLicensePlateText"
+                    app:layout_constraintStart_toEndOf="@+id/newTruckLicensePlateText"
+                    app:layout_constraintTop_toTopOf="@+id/newTruckLicensePlateText" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

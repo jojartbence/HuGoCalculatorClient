@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jojartbence.helpers.LicensePlateNumberValidityChecker
 import kotlinx.android.synthetic.main.user_data_table_fragment.*
 
 
@@ -37,5 +39,18 @@ class UserDataTableFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
 
         recyclerView.adapter?.notifyDataSetChanged()
+
+        addTruckButton.setOnClickListener { addTruck() }
+    }
+
+
+    private fun addTruck() {
+
+        if (LicensePlateNumberValidityChecker.isValidLicensePlateNumber(newTruckLicensePlateText.text.toString())) {
+            viewModel.addNewTruck(newTruckLicensePlateText.text.toString())
+        } else {
+            Toast.makeText(activity, "Format is wrong", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }
