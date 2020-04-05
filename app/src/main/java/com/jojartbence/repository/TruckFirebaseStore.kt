@@ -52,11 +52,6 @@ class TruckFirebaseStore: TruckStoreInterface {
 
 
     override fun update(truck: TruckModel) {
-        val foundTruck: TruckModel? = trucks.find { truck -> truck.id == truck.id }
-        if (foundTruck != null) {
-
-            TODO("Update data in repository")
-        }
 
         truck.id?.let {
             database.reference.child("users").child(userId).child("trucks").child(it).setValue(truck)
