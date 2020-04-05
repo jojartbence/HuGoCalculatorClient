@@ -11,8 +11,8 @@ object TruckRepository {
     }
 
 
-    fun fetchSites(onSitesReady: () -> Unit) {
-        truckStore.fetchSites {
+    fun fetchTrucks(onSitesReady: () -> Unit) {
+        truckStore.fetchTrucks {
             onSitesReady()
         }
     }

@@ -9,5 +9,5 @@ interface TruckStoreInterface {
     fun delete(truck: TruckModel)
     fun findById(id: String): TruckModel?
     fun clear()
-    fun fetchSites(onTruckListReady: () -> Unit)
+    fun fetchTrucks(onTruckListReady: () -> Unit)
 }

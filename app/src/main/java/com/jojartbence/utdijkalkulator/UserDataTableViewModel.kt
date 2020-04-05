@@ -7,10 +7,7 @@ import com.jojartbence.repository.TruckRepository
 class UserDataTableViewModel : ViewModel() {
 
     fun getTruckList(): List<TruckModel> {
-        val truck1 = TruckModel("ABC-123")
-        val truck2 = TruckModel("CDE-678")
-
-        return listOf(truck1, truck2)
+        return TruckRepository.findAll()
     }
 
     fun addNewTruck(licensePlateNumber: String) {

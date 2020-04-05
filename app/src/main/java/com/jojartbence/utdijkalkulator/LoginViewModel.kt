@@ -44,7 +44,7 @@ class LoginViewModel: ViewModel() {
 
     fun initRepository(email: String, context: Context, onSuccess: () -> Unit) {
         TruckRepository.createDatabase(context, email)
-        TruckRepository.fetchSites ( onSuccess )
+        TruckRepository.fetchTrucks ( onSuccess )
     }
 
 
@@ -61,7 +61,7 @@ class LoginViewModel: ViewModel() {
                 loginResult.value = false
             }
             true -> {
-                TruckRepository.fetchSites { loginResult.value = true }
+                TruckRepository.fetchTrucks { loginResult.value = true }
             }
         }
     }

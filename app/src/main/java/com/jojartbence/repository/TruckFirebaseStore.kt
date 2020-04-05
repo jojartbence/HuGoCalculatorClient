@@ -42,11 +42,11 @@ class TruckFirebaseStore: TruckStoreInterface {
 
 
     override fun create(truck: TruckModel) {
-        val key = database.reference.child("users").child(userId).child("sites").push().key
+        val key = database.reference.child("users").child(userId).child("trucks").push().key
         key?.let {
             truck.id = key
             trucks.add(truck)
-            database.reference.child("users").child(userId).child("sites").child(key).setValue(truck)
+            database.reference.child("users").child(userId).child("trucks").child(key).setValue(truck)
         }
     }
 
@@ -59,7 +59,7 @@ class TruckFirebaseStore: TruckStoreInterface {
         }
 
         truck.id?.let {
-            database.reference.child("users").child(userId).child("sites").child(it).setValue(truck)
+            database.reference.child("users").child(userId).child("trucks").child(it).setValue(truck)
         }
 
     }
@@ -67,7 +67,7 @@ class TruckFirebaseStore: TruckStoreInterface {
 
     override fun delete(truck: TruckModel) {
         truck.id?.let {
-            database.reference.child("users").child(userId).child("sites").child(it).removeValue()
+            database.reference.child("users").child(userId).child("trucks").child(it).removeValue()
         }
         trucks.remove(trucks.find { it.id == truck.id })
     }
@@ -78,7 +78,7 @@ class TruckFirebaseStore: TruckStoreInterface {
     }
 
 
-    override fun fetchSites(onTruckListReady: () -> Unit) {
+    override fun fetchTrucks(onTruckListReady: () -> Unit) {
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(dataSnapshot: DatabaseError) {
             }
@@ -89,6 +89,6 @@ class TruckFirebaseStore: TruckStoreInterface {
         }
         userId = FirebaseAuth.getInstance().currentUser!!.uid
         trucks.clear()
-        database.reference.child("users").child(userId).child("sites").addListenerForSingleValueEvent(valueEventListener)
+        database.reference.child("users").child(userId).child("trucks").addListenerForSingleValueEvent(valueEventListener)
     }
 }
