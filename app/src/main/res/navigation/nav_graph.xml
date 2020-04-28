@@ -11,8 +11,8 @@
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
-            android:id="@+id/action_loginFragment_to_userDataTableFragment"
-            app:destination="@id/userDataTableFragment"
+            android:id="@+id/action_loginFragment_to_truckListFragment"
+            app:destination="@id/truckListFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popUpTo="@+id/loginFragment"
@@ -24,8 +24,21 @@
         android:label="recommended_deposit_fragment"
         tools:layout="@layout/recommended_deposit_fragment" />
     <fragment
-        android:id="@+id/userDataTableFragment"
-        android:name="com.jojartbence.utdijkalkulator.UserDataTableFragment"
+        android:id="@+id/truckListFragment"
+        android:name="com.jojartbence.utdijkalkulator.TruckListFragment"
         android:label="user_data_table_fragment"
-        tools:layout="@layout/user_data_table_fragment" />
+        tools:layout="@layout/truck_list_fragment" >
+        <action
+            android:id="@+id/action_truckListFragment_to_movementListFragment"
+            app:destination="@id/movementListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movementListFragment"
+        android:name="com.jojartbence.utdijkalkulator.MovementListFragment"
+        android:label="movement_list_fragment"
+        tools:layout="@layout/movement_list_fragment" >
+        <argument
+            android:name="truck"
+            app:argType="com.jojartbence.model.TruckModel" />
+    </fragment>
 </navigation>

@@ -29,7 +29,7 @@ class LoginFragment : Fragment() {
             hideProgressBar()
             when(it) {
                 true -> {
-                    navController.navigate(R.id.action_loginFragment_to_userDataTableFragment)
+                    navController.navigate(R.id.action_loginFragment_to_truckListFragment)
                 }
                 false -> {
                     Toast.makeText(activity, "Log in failed: ${viewModel.errorMessage}", Toast.LENGTH_SHORT).show()
@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
             hideProgressBar()
             when(it) {
                 true -> {
-                    navController.navigate(R.id.action_loginFragment_to_userDataTableFragment)
+                    navController.navigate(R.id.action_loginFragment_to_truckListFragment)
                 }
                 false -> {
                     Toast.makeText(activity, "Sign up failed: ${viewModel.errorMessage}", Toast.LENGTH_SHORT).show()

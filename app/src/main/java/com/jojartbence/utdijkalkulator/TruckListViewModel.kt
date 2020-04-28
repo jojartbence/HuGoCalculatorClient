@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.jojartbence.model.TruckModel
 import com.jojartbence.repository.TruckRepository
 
-class UserDataTableViewModel : ViewModel() {
+class TruckListViewModel : ViewModel() {
 
     val truckList = MutableLiveData<List<TruckModel>>(TruckRepository.findAll())
 

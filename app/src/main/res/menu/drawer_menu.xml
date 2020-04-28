@@ -4,8 +4,8 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@id/userDataTableFragment"
-            android:title="User data table" />
+            android:id="@id/truckListFragment"
+            android:title="List of trucks" />
 
         <item
             android:id="@id/recommendedDepositFragment"
