@@ -1,14 +1,18 @@
 package com.jojartbence.utdijkalkulator
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.jojartbence.model.TruckDataModel
+import com.jojartbence.model.TruckModel
+import com.jojartbence.repository.TruckRepository
 
 class UserDataTableViewModel : ViewModel() {
 
-    fun getTruckDataList(): List<TruckDataModel> {
-        val truck1 = TruckDataModel("ABC-123")
-        val truck2 = TruckDataModel("CDE-678")
+    val truckList = MutableLiveData<List<TruckModel>>(TruckRepository.findAll())
 
-        return listOf(truck1, truck2)
+    fun addNewTruck(licensePlateNumber: String) {
+        val newTruck = TruckModel(licensePlateNumber)
+        TruckRepository.create(newTruck)
+
+        truckList.value = TruckRepository.findAll()
     }
 }
