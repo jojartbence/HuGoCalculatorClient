@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_truckListFragment_to_movementListFragment"
             app:destination="@id/movementListFragment" />
+        <action
+            android:id="@+id/action_truckListFragment_to_movementListFragment2"
+            app:destination="@id/movementListFragment" />
     </fragment>
     <fragment
         android:id="@+id/movementListFragment"

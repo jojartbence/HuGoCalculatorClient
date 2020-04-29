@@ -7,12 +7,10 @@ import com.jojartbence.repository.TruckRepository
 
 class TruckListViewModel : ViewModel() {
 
-    val truckList = MutableLiveData<List<TruckModel>>(TruckRepository.findAll())
+    val truckList = MutableLiveData(TruckRepository.findAll())
 
     fun addNewTruck(licensePlateNumber: String) {
         val newTruck = TruckModel(licensePlateNumber)
-        TruckRepository.create(newTruck)
-
-        truckList.value = TruckRepository.findAll()
+        // TODO: add to repo
     }
 }
