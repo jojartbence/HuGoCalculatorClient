@@ -2,19 +2,20 @@ package com.jojartbence.repository
 
 import com.jojartbence.model.MovementModel
 import com.jojartbence.model.TruckModel
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object Repository {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://localhost:8080/")
+        .baseUrl("http://192.168.0.109:8080/")
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
 
     private val service = retrofit.create(BackendService::class.java)
 
-    fun getAllTrucks(): List<TruckModel> {
-        return service.getAllTrucks().execute().body() ?: emptyList()
+    fun getAllTrucks(): Call<List<TruckModel>> {
+        return service.getAllTrucks()
     }
 
     fun addTruck(truck: TruckModel) {
@@ -27,6 +28,14 @@ object Repository {
 
     fun addMovement(movement: MovementModel) {
         service.addMovement(movement)
+    }
+
+    fun getRecommendedDeposit(): Double? {
+        return service.getRecommendedDeposit().execute().body()
+    }
+
+    fun deposit(value: Double) {
+        service.deposit(value)
     }
 
 

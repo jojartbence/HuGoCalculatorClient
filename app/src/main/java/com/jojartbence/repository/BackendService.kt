@@ -20,4 +20,10 @@ interface BackendService {
 
     @POST("/truck/add")
     fun addMovement(@Body movement: MovementModel): Call<Int>
+
+    @GET("/payment/recommended")
+    fun getRecommendedDeposit(): Call<Double>
+
+    @POST("payment/deposit")
+    fun deposit(@Body value: Double): Call<Int>
 }

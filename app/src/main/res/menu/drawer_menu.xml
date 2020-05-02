@@ -8,7 +8,7 @@
             android:title="List of trucks" />
 
         <item
-            android:id="@id/recommendedDepositFragment"
+            android:id="@id/depositFragment"
             android:title="Recommended deposit" />
 
     </group>

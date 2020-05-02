@@ -52,6 +52,7 @@ class TruckListFragment : Fragment(), TruckAdapter.OnClickListener {
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
 
         viewModel.truckList.observe(viewLifecycleOwner, truckListObserver)
+        viewModel.getAllTrucks()
 
         recyclerView.adapter?.notifyDataSetChanged()
 

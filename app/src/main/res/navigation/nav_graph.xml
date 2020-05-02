@@ -6,10 +6,10 @@
     app:startDestination="@id/truckListFragment">
 
     <fragment
-        android:id="@+id/recommendedDepositFragment"
-        android:name="com.jojartbence.utdijkalkulator.RecommendedDepositFragment"
-        android:label="recommended_deposit_fragment"
-        tools:layout="@layout/recommended_deposit_fragment" />
+        android:id="@+id/depositFragment"
+        android:name="com.jojartbence.utdijkalkulator.DepositFragment"
+        android:label="deposit_fragment"
+        tools:layout="@layout/deposit_fragment" />
     <fragment
         android:id="@+id/truckListFragment"
         android:name="com.jojartbence.utdijkalkulator.TruckListFragment"
