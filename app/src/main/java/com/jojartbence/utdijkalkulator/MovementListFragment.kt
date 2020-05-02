@@ -1,5 +1,6 @@
 package com.jojartbence.utdijkalkulator
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,6 +17,8 @@ import com.jojartbence.model.MovementModel
 import kotlinx.android.synthetic.main.movement_list_fragment.*
 import kotlinx.android.synthetic.main.truck_list_fragment.*
 import kotlinx.android.synthetic.main.truck_list_fragment.recyclerView
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MovementListFragment : Fragment() {
@@ -57,12 +60,30 @@ class MovementListFragment : Fragment() {
     }
 
     private fun addMovement() {
-        val from = newMovementFrom.text.toString()
-        val to = newMovementTo.text.toString()
-        val distance = newMovementDistance.text.toString()
-        val onMotorway = newMovementIsOnMotorway.isChecked
-        // TODO: type cast
-        viewModel.addMovement(from, to, distance, onMotorway)
+        try {
+            val from = stringToDate(newMovementFrom.text.toString())
+            val to = stringToDate(newMovementTo.text.toString())
+            val distance = newMovementDistance.text.toString().toInt()
+            val onMotorway = newMovementIsOnMotorway.isChecked
+
+            if (from != null && to != null) {
+                viewModel.addMovement(from, to, distance, onMotorway)
+            }
+            showFormatError()
+        } catch(e: Exception) {
+            showFormatError()
+        }
+    }
+
+
+    @SuppressLint("SimpleDateFormat")
+    private fun stringToDate(dateAsString: String): Date? {
+        return SimpleDateFormat("yyyy.MM.dd. HH:mm:ss").parse(dateAsString)
+    }
+
+
+    private fun showFormatError() {
+        Toast.makeText(activity, "Rossz formatum", Toast.LENGTH_SHORT).show()
     }
 
 }
