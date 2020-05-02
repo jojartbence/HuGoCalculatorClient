@@ -28,7 +28,18 @@ class DepositViewModel : ViewModel() {
     }
 
     fun deposit(value: Double) {
-        Repository.deposit(value)
-        getRecommendedDeposit()
+        val call = Repository.deposit(value)
+        call.enqueue(object : Callback<Double> {
+            override fun onFailure(call: Call<Double>, t: Throwable) {
+                getRecommendedDeposit()
+            }
+
+            override fun onResponse(
+                call: Call<Double>,
+                response: Response<Double>
+            ) {
+                getRecommendedDeposit()
+            }
+        })
     }
 }

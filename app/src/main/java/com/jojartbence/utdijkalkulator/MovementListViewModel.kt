@@ -41,7 +41,18 @@ class MovementListViewModel : ViewModel() {
 
     fun addMovement(from: Date, to: Date, distance: Int, onMotorway: Boolean) {
         val newMovement = MovementModel(truck, from, to, distance, onMotorway)
-        Repository.addMovement(newMovement)
-        getAllMovements()
+        val call = Repository.addMovement(newMovement)
+        call.enqueue( object: Callback<MovementModel> {
+            override fun onFailure(call: Call<MovementModel>, t: Throwable) {
+                getAllMovements()
+            }
+
+            override fun onResponse(
+                call: Call<MovementModel>,
+                response: Response<MovementModel>
+            ) {
+                getAllMovements()
+            }
+        })
     }
 }

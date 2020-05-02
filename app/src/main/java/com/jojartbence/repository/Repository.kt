@@ -19,24 +19,24 @@ object Repository {
         return service.getAllTrucks()
     }
 
-    fun addTruck(truck: TruckModel) {
-        service.addTruck(truck)
+    fun addTruck(truck: TruckModel): Call<TruckModel> {
+        return service.addTruck(truck)
     }
 
     fun getAllMovements(): Call<List<MovementModel>> {
         return service.getAllMovements()
     }
 
-    fun addMovement(movement: MovementModel) {
-        service.addMovement(movement)
+    fun addMovement(movement: MovementModel): Call<MovementModel> {
+        return service.addMovement(movement)
     }
 
     fun getRecommendedDeposit(): Call<Double> {
         return service.getRecommendedDeposit()
     }
 
-    fun deposit(value: Double) {
-        service.deposit(value)
+    fun deposit(value: Double): Call<Double> {
+        return service.deposit(value)
     }
 
 

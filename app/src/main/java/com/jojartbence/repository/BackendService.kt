@@ -9,21 +9,21 @@ import retrofit2.http.POST
 
 interface BackendService {
 
-    @GET("/truck/all")
+    @GET("truck/all")
     fun getAllTrucks(): Call<List<TruckModel>>
 
-    @POST("/truck/add")
-    fun addTruck(@Body truck: TruckModel): Call<Int>
+    @POST("truck/add")
+    fun addTruck(@Body truck: TruckModel): Call<TruckModel>
 
-    @GET("/movement/all")
+    @GET("movement/all")
     fun getAllMovements(): Call<List<MovementModel>>
 
-    @POST("/truck/add")
-    fun addMovement(@Body movement: MovementModel): Call<Int>
+    @POST("movement/add")
+    fun addMovement(@Body movement: MovementModel): Call<MovementModel>
 
-    @GET("/payment/recommended")
+    @GET("payment/recommended")
     fun getRecommendedDeposit(): Call<Double>
 
     @POST("payment/deposit")
-    fun deposit(@Body value: Double): Call<Int>
+    fun deposit(@Body value: Double): Call<Double>
 }

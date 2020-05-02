@@ -31,7 +31,18 @@ class TruckListViewModel : ViewModel() {
 
     fun addNewTruck(licensePlateNumber: String) {
         val newTruck = TruckModel(licensePlateNumber)
-        Repository.addTruck(newTruck)
-        getAllTrucks()
+        val call = Repository.addTruck(newTruck)
+        call.enqueue( object: Callback<TruckModel> {
+            override fun onFailure(call: Call<TruckModel>, t: Throwable) {
+                getAllTrucks()
+            }
+
+            override fun onResponse(
+                call: Call<TruckModel>,
+                response: Response<TruckModel>
+            ) {
+                getAllTrucks()
+            }
+        })
     }
 }
