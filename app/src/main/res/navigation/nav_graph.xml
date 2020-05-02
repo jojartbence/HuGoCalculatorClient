@@ -3,21 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/truckListFragment">
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.jojartbence.utdijkalkulator.LoginFragment"
-        android:label="login_fragment"
-        tools:layout="@layout/login_fragment" >
-        <action
-            android:id="@+id/action_loginFragment_to_truckListFragment"
-            app:destination="@id/truckListFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@+id/loginFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
     <fragment
         android:id="@+id/recommendedDepositFragment"
         android:name="com.jojartbence.utdijkalkulator.RecommendedDepositFragment"
