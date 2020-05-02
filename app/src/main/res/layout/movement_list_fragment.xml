@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserDataTableFragment">
+    tools:context=".MovementListFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,38 +29,61 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Új kamion felvétele"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <EditText
-                    android:id="@+id/newTruckLicensePlateText"
+                    android:id="@+id/newMovementFrom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:hint="Rendszám (pl. ABC-123)"
-                    android:inputType="textPersonName"
+                    android:hint="from"
+                    android:inputType="date"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/newMovementTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:hint="to"
+                    android:inputType="date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newMovementFrom" />
+
+                <EditText
+                    android:id="@+id/newMovementDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:hint="distance"
+                    android:inputType="number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newMovementTo" />
+
+                <CheckBox
+                    android:id="@+id/newMovementIsOnMotorway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="On motorway?"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newMovementDistance" />
 
                 <Button
-                    android:id="@+id/addTruckButton"
+                    android:id="@+id/addMovementButton"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="Felvétel"
-                    app:layout_constraintBottom_toBottomOf="@+id/newTruckLicensePlateText"
-                    app:layout_constraintStart_toEndOf="@+id/newTruckLicensePlateText"
-                    app:layout_constraintTop_toTopOf="@+id/newTruckLicensePlateText" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newMovementIsOnMotorway" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

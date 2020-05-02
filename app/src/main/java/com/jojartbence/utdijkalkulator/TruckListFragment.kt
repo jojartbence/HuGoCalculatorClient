@@ -7,24 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jojartbence.adapter.TruckAdapter
 import com.jojartbence.helpers.LicensePlateNumberValidityChecker
 import com.jojartbence.model.TruckModel
-import kotlinx.android.synthetic.main.user_data_table_fragment.*
+import kotlinx.android.synthetic.main.truck_list_fragment.*
 
 
-class UserDataTableFragment : Fragment() {
+class TruckListFragment : Fragment(), TruckAdapter.OnClickListener {
 
-    private val viewModel by lazy { ViewModelProviders.of(this)[UserDataTableViewModel::class.java] }
+    private val viewModel by lazy { ViewModelProviders.of(this)[TruckListViewModel::class.java] }
 
     lateinit var navController: NavController
 
 
     private val truckListObserver = Observer<List<TruckModel>> {
-        recyclerView.adapter = TruckAdapter(it, null)
+        recyclerView.adapter = TruckAdapter(it, this)
         recyclerView.adapter?.notifyDataSetChanged()
 
         linearLayout.scrollTo(0,0)
@@ -39,7 +41,7 @@ class UserDataTableFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.user_data_table_fragment, container, false)
+        return inflater.inflate(R.layout.truck_list_fragment, container, false)
     }
 
 
@@ -49,7 +51,8 @@ class UserDataTableFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
 
-        viewModel.truckList.observe(this, truckListObserver)
+        viewModel.truckList.observe(viewLifecycleOwner, truckListObserver)
+        viewModel.getAllTrucks()
 
         recyclerView.adapter?.notifyDataSetChanged()
 
@@ -64,6 +67,10 @@ class UserDataTableFragment : Fragment() {
         } else {
             Toast.makeText(activity, "Format is wrong", Toast.LENGTH_SHORT).show()
         }
+    }
 
+    override fun onTruckClick(truck: TruckModel) {
+        val bundle = bundleOf("truck" to truck.copy())
+        navController.navigate(R.id.action_truckListFragment_to_movementListFragment, bundle)
     }
 }

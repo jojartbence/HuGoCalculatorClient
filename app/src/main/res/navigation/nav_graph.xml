@@ -3,29 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/truckListFragment">
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.jojartbence.utdijkalkulator.LoginFragment"
-        android:label="login_fragment"
-        tools:layout="@layout/login_fragment" >
+        android:id="@+id/depositFragment"
+        android:name="com.jojartbence.utdijkalkulator.DepositFragment"
+        android:label="deposit_fragment"
+        tools:layout="@layout/deposit_fragment" />
+    <fragment
+        android:id="@+id/truckListFragment"
+        android:name="com.jojartbence.utdijkalkulator.TruckListFragment"
+        android:label="user_data_table_fragment"
+        tools:layout="@layout/truck_list_fragment" >
         <action
-            android:id="@+id/action_loginFragment_to_userDataTableFragment"
-            app:destination="@id/userDataTableFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@+id/loginFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_truckListFragment_to_movementListFragment"
+            app:destination="@id/movementListFragment" />
+        <action
+            android:id="@+id/action_truckListFragment_to_movementListFragment2"
+            app:destination="@id/movementListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/recommendedDepositFragment"
-        android:name="com.jojartbence.utdijkalkulator.RecommendedDepositFragment"
-        android:label="recommended_deposit_fragment"
-        tools:layout="@layout/recommended_deposit_fragment" />
-    <fragment
-        android:id="@+id/userDataTableFragment"
-        android:name="com.jojartbence.utdijkalkulator.UserDataTableFragment"
-        android:label="user_data_table_fragment"
-        tools:layout="@layout/user_data_table_fragment" />
+        android:id="@+id/movementListFragment"
+        android:name="com.jojartbence.utdijkalkulator.MovementListFragment"
+        android:label="movement_list_fragment"
+        tools:layout="@layout/movement_list_fragment" >
+        <argument
+            android:name="truck"
+            app:argType="com.jojartbence.model.TruckModel" />
+    </fragment>
 </navigation>
