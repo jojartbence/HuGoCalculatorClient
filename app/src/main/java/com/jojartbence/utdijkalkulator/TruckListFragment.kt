@@ -26,7 +26,7 @@ class TruckListFragment : Fragment(), TruckAdapter.OnClickListener {
 
 
     private val truckListObserver = Observer<List<TruckModel>> {
-        recyclerView.adapter = TruckAdapter(it, null)
+        recyclerView.adapter = TruckAdapter(it, this)
         recyclerView.adapter?.notifyDataSetChanged()
 
         linearLayout.scrollTo(0,0)

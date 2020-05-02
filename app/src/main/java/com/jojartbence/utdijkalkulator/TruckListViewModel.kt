@@ -2,7 +2,6 @@ package com.jojartbence.utdijkalkulator
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.gms.common.api.internal.BasePendingResult
 import com.jojartbence.model.TruckModel
 import com.jojartbence.repository.Repository
 import retrofit2.Call
@@ -24,7 +23,7 @@ class TruckListViewModel : ViewModel() {
                 call: Call<List<TruckModel>>,
                 response: Response<List<TruckModel>>
             ) {
-                truckList.value = response.body()
+                truckList.value = response.body() ?: emptyList()
             }
         })
     }

@@ -34,6 +34,7 @@ class DepositFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
         viewModel.recommendedDeposit.observe(viewLifecycleOwner, recommendedDepositObserver)
+        viewModel.getRecommendedDeposit()
 
         depositButton.setOnClickListener { onDepositButtonClick() }
     }

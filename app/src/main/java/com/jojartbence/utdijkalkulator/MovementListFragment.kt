@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.jojartbence.adapter.MovementAdapter
 import com.jojartbence.model.MovementModel
 import kotlinx.android.synthetic.main.movement_list_fragment.*
-import kotlinx.android.synthetic.main.truck_list_fragment.*
 import kotlinx.android.synthetic.main.truck_list_fragment.recyclerView
 import java.text.SimpleDateFormat
 import java.util.*
@@ -53,6 +52,7 @@ class MovementListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
 
         viewModel.movementList.observe(viewLifecycleOwner, movementListObserver)
+        viewModel.getAllMovements()
 
         recyclerView.adapter?.notifyDataSetChanged()
 
