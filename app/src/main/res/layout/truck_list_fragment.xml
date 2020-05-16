@@ -30,12 +30,12 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/addTruckText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Új kamion felvétele"
+                    android:text="Add new truck"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -46,21 +46,31 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:hint="Rendszám (pl. ABC-123)"
+                    android:ems="15"
+                    android:hint="License plate number (e.g. ABC-123)"
                     android:inputType="textPersonName"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                    app:layout_constraintTop_toBottomOf="@+id/addTruckText" />
+
+                <EditText
+                    android:id="@+id/newTruckEmissionCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="Emission category"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newTruckLicensePlateText" />
 
                 <Button
                     android:id="@+id/addTruckButton"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
-                    android:text="Felvétel"
-                    app:layout_constraintBottom_toBottomOf="@+id/newTruckLicensePlateText"
-                    app:layout_constraintStart_toEndOf="@+id/newTruckLicensePlateText"
-                    app:layout_constraintTop_toTopOf="@+id/newTruckLicensePlateText" />
+                    android:layout_marginTop="8dp"
+                    android:text="Add"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newTruckEmissionCategory" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
