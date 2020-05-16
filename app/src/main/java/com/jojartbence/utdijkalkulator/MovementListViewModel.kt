@@ -1,5 +1,6 @@
 package com.jojartbence.utdijkalkulator
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jojartbence.model.MovementModel
@@ -8,7 +9,9 @@ import com.jojartbence.repository.Repository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
+import java.lang.NumberFormatException
+import java.text.SimpleDateFormat
+
 
 class MovementListViewModel : ViewModel() {
 
@@ -39,8 +42,18 @@ class MovementListViewModel : ViewModel() {
     }
 
 
-    fun addMovement(from: Date, to: Date, distance: Int, onMotorway: Boolean) {
-        val newMovement = MovementModel(truck, from, to, distance, onMotorway)
+    fun addMovement(fromString: String, toString: String, distanceString: String, jCategoryString: String, onMotorway: Boolean) {
+        val from = stringToMillis(fromString)
+        val to = stringToMillis(toString)
+        val distance = distanceString.toInt()
+        val jCategory = when(jCategoryString) {
+            "J2" -> 0
+            "J3" -> 1
+            "J4" -> 2
+            else -> throw NumberFormatException()
+        }
+
+        val newMovement = MovementModel(truck, from, to, distance, jCategory, onMotorway)
         val call = Repository.addMovement(newMovement)
         call.enqueue( object: Callback<MovementModel> {
             override fun onFailure(call: Call<MovementModel>, t: Throwable) {
@@ -54,5 +67,11 @@ class MovementListViewModel : ViewModel() {
                 getAllMovements()
             }
         })
+    }
+
+
+    @SuppressLint("SimpleDateFormat")
+    private fun stringToMillis(dateAsString: String): Long {
+        return SimpleDateFormat("yyyy.MM.dd. HH:mm:ss").parse(dateAsString)?.time ?: throw NumberFormatException()
     }
 }

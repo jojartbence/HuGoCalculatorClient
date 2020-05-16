@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class TruckModel (
-    var licensePlateNumber: String? = null
-    ): Parcelable
+    val licensePlateNumber: String
+): Parcelable
 {
 }

@@ -16,8 +16,6 @@ import com.jojartbence.adapter.MovementAdapter
 import com.jojartbence.model.MovementModel
 import kotlinx.android.synthetic.main.movement_list_fragment.*
 import kotlinx.android.synthetic.main.truck_list_fragment.recyclerView
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class MovementListFragment : Fragment() {
@@ -61,29 +59,22 @@ class MovementListFragment : Fragment() {
 
     private fun addMovement() {
         try {
-            val from = stringToDate(newMovementFrom.text.toString())
-            val to = stringToDate(newMovementTo.text.toString())
-            val distance = newMovementDistance.text.toString().toInt()
+            val from = newMovementFrom.text.toString()
+            val to = newMovementTo.text.toString()
+            val distance = newMovementDistance.text.toString()
+            val jCategory = newMovementJCategory.text.toString()
             val onMotorway = newMovementIsOnMotorway.isChecked
 
-            if (from != null && to != null) {
-                viewModel.addMovement(from, to, distance, onMotorway)
-            }
-            showFormatError()
+            viewModel.addMovement(from, to, distance, jCategory, onMotorway)
+
         } catch(e: Exception) {
             showFormatError()
         }
     }
 
 
-    @SuppressLint("SimpleDateFormat")
-    private fun stringToDate(dateAsString: String): Date? {
-        return SimpleDateFormat("yyyy.MM.dd. HH:mm:ss").parse(dateAsString)
-    }
-
-
     private fun showFormatError() {
-        Toast.makeText(activity, "Rossz formatum", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Wrong format", Toast.LENGTH_SHORT).show()
     }
 
 }

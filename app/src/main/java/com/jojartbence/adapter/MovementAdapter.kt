@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jojartbence.utdijkalkulator.R
 import com.jojartbence.model.MovementModel
 import kotlinx.android.synthetic.main.card_movement.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MovementAdapter(private val movementList: List<MovementModel>, private val listener: MovementAdapter.OnClickListener?)
@@ -26,13 +28,25 @@ class MovementAdapter(private val movementList: List<MovementModel>, private val
 
     class MovementHolder (private val movementCard: View) : RecyclerView.ViewHolder(movementCard) {
 
+        private val formatter = SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+
         fun bind(movement: MovementModel, listener: OnClickListener?) {
-            movementCard.movementFrom.setText(movement.timeFrom.time.toString())
-            movementCard.movementTo.setText(movement.timeTo.time.toString())
-            movementCard.movementDistance.setText(movement.distance.toString())
+            movementCard.movementFrom.setText("From: " + formatter.format(Date(movement.timeFrom)))
+            movementCard.movementTo.setText("To: " + formatter.format(Date(movement.timeTo)))
+            movementCard.movementDistance.setText("Distance: " + movement.distance.toString() + " km")
+            movementCard.movementJCategory.text = intToJCategory(movement.jCategory)
             movementCard.movementIsOnMotorway.isChecked = movement.onMotorway
 
             movementCard.setOnClickListener { listener?.onMovementClick(movement) }
+        }
+
+        private fun intToJCategory(jCategory: Int): String {
+            return when(jCategory) {
+                0 -> "J2"
+                1 -> "J3"
+                2 -> "J4"
+                else -> "Parsing error"
+            }
         }
     }
 
