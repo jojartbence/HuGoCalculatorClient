@@ -7,8 +7,9 @@ import java.util.*
 @Parcelize
 data class MovementModel (
     val truck: TruckModel,
-    val timeFrom: Date,
-    val timeTo: Date,
+    val timeFrom: Long,
+    val timeTo: Long,
     val distance: Int,
+    val jCategory: Int,
     val onMotorway: Boolean
 ) : Parcelable

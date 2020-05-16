@@ -29,17 +29,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/addMovementText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Add new movement"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <EditText
                     android:id="@+id/newMovementFrom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:hint="from"
-                    android:inputType="date"
+                    android:ems="15"
+                    android:hint="From (yyyy.MM.dd. HH:mm:ss)"
+                    android:inputType="text"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/addMovementText" />
 
                 <EditText
                     android:id="@+id/newMovementTo"
@@ -47,9 +58,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:hint="to"
-                    android:inputType="date"
+                    android:ems="15"
+                    android:hint="To (yyyy.MM.dd. HH:mm:ss)"
+                    android:inputType="text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/newMovementFrom" />
 
@@ -59,11 +70,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:hint="distance"
+                    android:ems="15"
+                    android:hint="Distance"
                     android:inputType="number"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/newMovementTo" />
+
+                <EditText
+                    android:id="@+id/newMovementJCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="15"
+                    android:hint="Category: J2/J3/J4"
+                    android:inputType="text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newMovementDistance" />
 
                 <CheckBox
                     android:id="@+id/newMovementIsOnMotorway"
@@ -73,7 +96,7 @@
                     android:layout_marginTop="8dp"
                     android:text="On motorway?"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/newMovementDistance" />
+                    app:layout_constraintTop_toBottomOf="@+id/newMovementJCategory" />
 
                 <Button
                     android:id="@+id/addMovementButton"
@@ -81,7 +104,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Felvétel"
+                    android:text="Add"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/newMovementIsOnMotorway" />
 

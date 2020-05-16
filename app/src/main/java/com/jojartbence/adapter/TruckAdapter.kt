@@ -27,8 +27,18 @@ class TruckAdapter (private val truckList: List<TruckModel>, private val listene
     class TruckHolder (private val truckCard: View) : RecyclerView.ViewHolder(truckCard) {
 
         fun bind(truck: TruckModel, listener: OnClickListener?) {
-            truckCard.textViewLicensePlateNumber.text = truck.licensePlateNumber
+            truckCard.truckLicensePlateNumber.text = truck.licensePlateNumber
+            truckCard.truckEmissionCategory.text = intToEmissionCategory(truck.emissionCategory)
             truckCard.setOnClickListener { listener?.onTruckClick(truck) }
+        }
+
+        private fun intToEmissionCategory(emissionCategory: Int): String {
+            return when(emissionCategory) {
+                0 -> ">= EURO V"
+                1 -> "EURO II - EURO IV"
+                2 -> "<= EURO I"
+                else -> "Parsing error"
+            }
         }
     }
 

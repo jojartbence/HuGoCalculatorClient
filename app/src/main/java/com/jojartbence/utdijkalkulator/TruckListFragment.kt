@@ -13,7 +13,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jojartbence.adapter.TruckAdapter
-import com.jojartbence.helpers.LicensePlateNumberValidityChecker
 import com.jojartbence.model.TruckModel
 import kotlinx.android.synthetic.main.truck_list_fragment.*
 
@@ -62,9 +61,13 @@ class TruckListFragment : Fragment(), TruckAdapter.OnClickListener {
 
     private fun addTruck() {
 
-        if (LicensePlateNumberValidityChecker.isValidLicensePlateNumber(newTruckLicensePlateText.text.toString())) {
-            viewModel.addNewTruck(newTruckLicensePlateText.text.toString())
-        } else {
+        try {
+            val licensePlateNumber = newTruckLicensePlateText.text.toString()
+            val emissionCategory = newTruckEmissionCategory.text.toString()
+
+            viewModel.addNewTruck(licensePlateNumber, emissionCategory)
+
+        } catch (e: Exception) {
             Toast.makeText(activity, "Format is wrong", Toast.LENGTH_SHORT).show()
         }
     }
