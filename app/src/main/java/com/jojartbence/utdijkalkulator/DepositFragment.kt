@@ -19,7 +19,7 @@ class DepositFragment : Fragment() {
 
 
     private val recommendedDepositObserver = Observer<Double> {
-        recommendedDeposit.setText("Ajanlott feltoltes: $it Ft")
+        recommendedDeposit.setText("Recommended deposit: $it Ft")
     }
 
     override fun onCreateView(
