@@ -48,7 +48,7 @@
                     android:layout_marginTop="8dp"
                     android:ems="15"
                     android:hint="From (yyyy.MM.dd. HH:mm:ss)"
-                    android:inputType="date"
+                    android:inputType="text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/addMovementText" />
 
@@ -60,7 +60,7 @@
                     android:layout_marginTop="8dp"
                     android:ems="15"
                     android:hint="To (yyyy.MM.dd. HH:mm:ss)"
-                    android:inputType="date"
+                    android:inputType="text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/newMovementFrom" />
 
