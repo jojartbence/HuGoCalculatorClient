@@ -31,4 +31,9 @@
             android:name="truck"
             app:argType="com.jojartbence.model.TruckModel" />
     </fragment>
+    <fragment
+        android:id="@+id/serverUrlSetFragment"
+        android:name="com.jojartbence.utdijkalkulator.ServerUrlSetFragment"
+        android:label="server_url_set_fragment"
+        tools:layout="@layout/server_url_set_fragment" />
 </navigation>
