@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "831783620064",
+    "firebase_url": "https://utdij-kalkulator.firebaseio.com",
+    "project_id": "utdij-kalkulator",
+    "storage_bucket": "utdij-kalkulator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831783620064:android:7bd302a0e1ffd76df42f85",
+        "android_client_info": {
+          "package_name": "com.jojartbence.utdijkalkulator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831783620064-i1708vub97endbk2v7dcusv0tu3svhv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jojartbence.utdijkalkulator",
+            "certificate_hash": "d814c51279bedab6899134a43fdb6a745c4f5dc0"
+          }
+        },
+        {
+          "client_id": "831783620064-ko2ltts3ivqp5hp08pc9b49n0u7j68vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2DRs7GmHJmpTESikdXg8Et47xu2J-Lqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831783620064-ko2ltts3ivqp5hp08pc9b49n0u7j68vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
