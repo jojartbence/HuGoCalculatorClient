@@ -34,6 +34,6 @@
     <fragment
         android:id="@+id/serverUrlSetFragment"
         android:name="com.jojartbence.utdijkalkulator.ServerUrlSetFragment"
-        android:label="server_url_set_fragment"
+        android:label="Set server URL"
         tools:layout="@layout/server_url_set_fragment" />
 </navigation>

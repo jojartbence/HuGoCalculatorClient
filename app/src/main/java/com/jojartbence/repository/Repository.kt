@@ -8,12 +8,32 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object Repository {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.0.164:8080/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
 
-    private val service = retrofit.create(BackendService::class.java)
+    private lateinit var service: BackendService
+
+    private var url: String
+
+    init {
+        url = "http://192.168.0.164:8080/"
+        setService()
+    }
+
+    fun setUrl(url: String) {
+        this.url = url
+        setService()
+    }
+
+    fun getUrl(): String {
+        return url
+    }
+
+    private fun setService() {
+        service = Retrofit
+            .Builder()
+            .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build().create(BackendService::class.java)
+    }
 
     fun getAllTrucks(): Call<List<TruckModel>> {
         return service.getAllTrucks()
