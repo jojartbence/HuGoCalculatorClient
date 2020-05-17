@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val topLevelDestinations = setOf(R.id.truckListFragment, R.id.depositFragment)
+        val topLevelDestinations = setOf(R.id.truckListFragment, R.id.depositFragment, R.id.serverUrlSetFragment)
         appBarConfig = AppBarConfiguration.Builder(topLevelDestinations).setDrawerLayout(drawer_layout).build()
 
 

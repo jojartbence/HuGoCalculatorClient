@@ -11,5 +11,9 @@
             android:id="@id/depositFragment"
             android:title="Recommended deposit" />
 
+        <item
+            android:id="@id/serverUrlSetFragment"
+            android:title="Set server URL" />
+
     </group>
 </menu>
